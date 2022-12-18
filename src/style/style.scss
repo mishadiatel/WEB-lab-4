@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import "./helpers/RESET.scss";
+@import "./helpers/ELEMENTS.scss";
+
+$fontFamily: 'Poppins', sans-serif;
+$fontColor:  #232323;
+$whiteColor: #fff;
+
+body{
+    font-family: $fontFamily;
+    color: $fontColor;
+    font-weight: 400;
+}
+.header{
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    &__title{
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: $whiteColor;
+    }
+    
+    
+}
+.main{
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__button-start{
+        padding: 10px 20px;
+        background-color: rgb(27, 215, 235);
+        border-radius: 8px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 300ms ease;
+        &:hover{
+            background-color: rgb(8, 149, 214);
+        }
+    }
+}
+.popup-test{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.766);
+    z-index: 5;
+    overflow-y: auto;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 300ms ease;
+    &.open-test{
+        opacity: 1;
+        transform: scale(1);
+    }
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    &__container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 100%;
+        padding: 20px;
+        
+    }
+    &__body{
+        padding: 30px 20px 40px;
+        background-color: $whiteColor;
+        
+        flex: 0 1 700px;
+        position: relative;
+        border-radius: 10px;
+    }
+    // &__form{
+    //     // overflow-y: auto;
+    // }
+    &__title{
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+    &__text-item{
+        position: relative;
+        margin-bottom: 15px;
+        
+    }
+    &__text-field{
+        width: 100%;
+        border: none;
+        height: 40px;
+        font-size: 1.125rem;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: transparent;
+        &:focus{
+            outline: none;
+            background-color: rgba(143, 251, 2, 0.085);
+
+        }
+        &:focus ~ .popup-test__line{
+            transform: scale(1);
+        }
+        &:focus~.popup-test__text-label,
+        &:not(:placeholder-shown)~.popup-test__text-label{
+            transform: translate(-6px ,-135%) scale(0.8);
+        }
+    }
+    &__text-label{
+        position: absolute;
+        top: 11px;
+        left: 9px;
+        transition: transform 200ms ease;
+
+    }
+    &__line{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: rgb(73, 73, 73);
+        transform: scale(0);
+        transition: transform 200ms ease;
+    }
+    &__next-button{
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        padding: 5px 15px;
+        background-color: rgb(193, 32, 190);
+        border-radius: 5px;
+        cursor: pointer;
+
+    }
+    &__close-button{
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        background-color: transparent;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    &__question-number{
+        display: none;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+    &__answears{
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        margin-bottom: 20px;
+    }
+    &__answear-label{
+        cursor: pointer;
+    }
+
+    
+}
